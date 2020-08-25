@@ -1,7 +1,9 @@
 ---
-    title: "Hello world post"
-    description: "Lorem impus dolar sit amet."
+    title: "TypeScript El Kitabı (yeni)"
+    description: "Microsof'un TypeScript için hazırladığı yenilenmiş el kitapçığını Github üzerinden yayınladı. Her konu derinlemesine çok güzel irdelenmiş ve bol örneklerle desteklenmiş."
     date: "25.08.2020"
+    category: "Yazılım"
+    cover: "https://dl.airtable.com/.attachmentThumbnails/96e925fc972c3f0905f92ed1f247223a/e31a8584"
 ---
 
 # Lorem impus dolar sit amet

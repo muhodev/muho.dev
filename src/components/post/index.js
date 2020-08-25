@@ -7,8 +7,8 @@ function Post(props) {
                 {props.date}
             </div>
             <div className="post__content">
-                <p className="post__tag">
-                    {props.tag}
+                <p className="post__category">
+                    {props.category}
                 </p>
                 <div className="post__title">
                     {props.title}

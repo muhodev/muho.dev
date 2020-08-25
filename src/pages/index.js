@@ -1,31 +1,54 @@
 import React from "react"
+import { graphql, useStaticQuery } from "gatsby"
 import { Layout, Section, SEO, HomeBanner, Post } from "../components"
-import { dummyPosts } from "../dummyApi"
 
-
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Ana Sayfa" lang="tr" />
-    <HomeBanner />
-    <Section>
-      <div className="posts__grid">
-
-        {
-          dummyPosts.map((post, index) => (
-            <Post
-              key={index}
-              title={post.title}
-              description={post.description}
-              date={post.date}
-              cover={post.cover}
-              tag={post.tag}
-            />
-          ))
+const IndexPage = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      allMarkdownRemark {
+        edges {
+          node {
+            id
+            excerpt(format: PLAIN)
+            frontmatter {
+              title
+              description
+              cover
+              date
+              category
+            }
+          }
         }
+      }
+    }
+  `)
 
-      </div>
-    </Section>
-  </Layout >
-)
+  console.log(data)
+
+  return (
+    <Layout >
+      <SEO title="Ana Sayfa" lang="tr" />
+      <HomeBanner />
+      <Section>
+        <div className="posts__grid">
+
+          {
+            data.allMarkdownRemark.edges.map(({ node }) => (
+              <Post
+                key={node.id}
+                title={node.frontmatter.title}
+                description={node.frontmatter.description}
+                date={node.frontmatter.date}
+                cover={node.frontmatter.cover}
+                category={node.frontmatter.category}
+              />
+            ))
+          }
+
+        </div>
+      </Section>
+    </Layout >
+  )
+}
 
 export default IndexPage
