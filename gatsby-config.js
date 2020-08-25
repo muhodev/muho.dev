@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Yazılım, Tasarım, Teknoloji İçerikleri | muho.dev`,
-    description: `Yazılım, tasarım ve teknoloji alanlarında öğrendiklerimi paylaşıyorum.`,
+    description: `Öğrendiğim bilgileri hikaye üreticiliği süzgecinden geçirerek burada paylaşıyorum.`,
     author: `muhodev`,
   },
   plugins: [
@@ -9,12 +9,20 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
+        name: `content`,
+        path: `${__dirname}/src/content`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `tutorial`,
+        path: `${__dirname}/src/tutorial`,
       },
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -24,10 +32,9 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/images/icon.png`, // This path is relative to the root of the site.
+        icon: `src/content/images/icon.png`,
       },
     },
     "gatsby-plugin-sass"
-    // `gatsby-plugin-offline`,
   ],
 }

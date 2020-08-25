@@ -14,7 +14,7 @@ function HomeBanner(props) {
                         Yazılım, Tasarım, Teknoloji İçerikleri
                     </div>
                     <p>
-                        Öğrendiğim bilgileri hikaye üreticiliği süzgecinden geçirerek burada paylaşıyorum. Reklam yok. Clikbait içerikler yok.
+                        Öğrendiğim bilgileri hikaye üreticiliği süzgecinden geçirerek burada paylaşıyorum.
                     </p>
                 </div>
                 <div className="home-banner__illustration">
