@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'gatsby'
 
 function Post(props) {
     return (
@@ -8,20 +9,30 @@ function Post(props) {
             </div>
             <div className="post__content">
                 <p className="post__category">
-                    {props.category}
+                    <Link to="/">
+                        {props.category}
+                    </Link>
                 </p>
                 <div className="post__title">
-                    {props.title}
+                    <Link to={"/blog/" + props.slug}>
+                        {props.title}
+                    </Link>
                 </div>
                 <p className="post__description">
                     {props.description}
                 </p>
-                <div className="read-more">Devamını oku</div>
+                <div className="read-more">
+                    <Link to={props.slug}>
+                        Devamını oku
+                    </Link>
+                </div>
             </div>
             <footer>
-                <div className="post__cover">
-                    <img src={props.cover} alt="" />
-                </div>
+                <Link to={props.slug}>
+                    <div className="post__cover">
+                        <img loading="lazy" src={props.cover} alt="" />
+                    </div>
+                </Link>
             </footer>
         </article>
     )

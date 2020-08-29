@@ -17,6 +17,9 @@ const IndexPage = () => {
               date
               category
             }
+            fields {
+              slug
+            }
           }
         }
       }
@@ -41,6 +44,7 @@ const IndexPage = () => {
                 date={node.frontmatter.date}
                 cover={node.frontmatter.cover}
                 category={node.frontmatter.category}
+                slug={node.fields.slug}
               />
             ))
           }

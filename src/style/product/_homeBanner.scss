@@ -1,6 +1,7 @@
 .home-banner {
-    background-color: $c-primary-light;
+    // background-color: $c-primary-light;
     padding: 60px 0;
+    border-bottom: 1px solid #eee;
 
     &__container {
         display: grid;

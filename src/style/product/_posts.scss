@@ -1,19 +1,19 @@
 .posts {
     &__grid {
-        padding: 50px 0;
+        padding: 60px 0;
         display: grid;
         grid-template-columns: 1fr;
-        grid-row-gap: 30px;
+        grid-row-gap: 35px;
     }
 
 }
 
 .post {
     display: grid;
-    grid-template-columns: .7fr 2fr 1.3fr;
-    grid-column-gap: 30px;
-    padding-bottom: 30px;
-    border-bottom: 1px solid #ddd;
+    grid-template-columns: auto 2fr 1fr;
+    grid-column-gap: 75px;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #eee;
 
     &__cover {
         display: flex;
