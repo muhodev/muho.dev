@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500;600&display=swap');
 
 *,*::before,*::after {
     margin: 0;
@@ -12,10 +12,17 @@ html {
     // color: #241c15;
     font-family: $f-family-default;
     line-height: 1.5;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: transparent;
 }
 
 a {
     color: currentColor;
     text-decoration: none;
-}
+    transition:all 250ms ;
 
+    &:hover {
+        text-decoration: underline;
+    }
+}

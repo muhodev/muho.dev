@@ -21,10 +21,17 @@ function Post(props) {
                 <p className="post__description">
                     {props.description}
                 </p>
-                <div className="read-more">
-                    <Link to={props.slug}>
-                        Devamını oku
-                    </Link>
+                <div className="tags">
+                    <div className="tag">
+                        <Link to="/">
+                            css
+                                    </Link>
+                    </div>
+                    <div className="tag">
+                        <Link to="/">
+                            react
+                                    </Link>
+                    </div>
                 </div>
             </div>
             <footer>

@@ -31,7 +31,7 @@
 
     &__title {
         font-size: 22px;
-        font-weight: 700;
+        font-weight: 600;
         font-family: $f-family-serif;
         line-height: 1.2;
         margin-top: 10px;
@@ -48,14 +48,119 @@
         text-overflow: ellipsis;
         font-size: 16px;
         color: #444;
+        margin-bottom: 12px;
     }
 
-    &__category, .read-more {
+    &__category{
         font-size: 15px;
     }
+}
 
-    .read-more {
-        margin-top: 16px;
+.article {
+
+    &__header {
+        margin: 30px 0;
+    }
+
+    &__title {
+        font-size: 36px;
+        line-height: 44px;
+        font-family: $f-family-serif;
         font-weight: 500;
+        color: #202124;
+        margin-top: 4px;
+        margin-bottom: 16px;
+    }
+
+    &__description {
+        font-size: 16px;
+        line-height: 28px;
+    }
+
+    &__meta {
+        margin: 24px 0;
+        display: flex;
+        align-items: center;
+    }
+
+    &__date {
+        margin-right: 16px;
+    }
+
+   
+
+    &__cover {
+        width: 100%;
+        display: flex;
+        
+        img {
+            width: 100%;
+            border-radius: 4px;
+        }
+    }
+
+    &__content {
+        p {
+            font-size: 17px;
+            margin-top: 24px;
+            margin-bottom: 24px;
+            line-height: 30px;
+        }
+
+        h2, h3, h4 {
+            font-size: 24px;
+            font-weight: 600;
+            font-family: $f-family-serif;
+            margin-top: 64px;
+            margin-bottom: 32px;
+        }
+
+        hr {
+            border-color: #eee;
+            border-style: solid;
+        }
+
+        blockquote {
+            background: #fff7e4;
+            border-left: 5px solid #ffdf92;
+            font-style: italic;
+            margin: 3.4rem 0;
+            overflow: hidden;
+            padding: 4px 24px;
+        }
+
+        a {
+            color: #3740ff;
+        }
+
+        strong, b {
+            font-weight: 500;
+        }
+    }
+
+
+
+}
+
+.tags {
+    display: flex;
+    align-items: center;
+}
+
+.tag {
+    margin-right: 4px;
+    transition:all 250ms ;
+    border-radius: 15px;
+    border: 1px solid #555;
+    font-size: 14px;
+    a {
+        display: flex;
+        padding: 0px 8px;
+    }
+    &:hover {
+        background-color: #eee;
+        a {
+            text-decoration: none;
+        }
     }
 }
