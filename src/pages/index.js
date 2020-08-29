@@ -5,46 +5,48 @@ import { Layout, Section, SEO, HomeBanner, Post } from "../components"
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allMarkdownRemark {
+      allContentfulBlog(
+        sort: {
+          fields: createdAt,
+          order: DESC
+        }
+      ) {
         edges {
           node {
             id
-            excerpt(format: PLAIN)
-            frontmatter {
+            title
+            slug
+            category {
               title
-              description
-              cover
-              date
-              category
-            }
-            fields {
               slug
             }
+            cover {file {url}}
+            description {description}
+            createdAt(formatString: "D.M.YYYY")
           }
         }
       }
     }
   `)
 
-  console.log(data)
 
   return (
     <Layout >
-      <SEO title="Ana Sayfa" lang="tr" />
+      <SEO title="Yazılım, Tasarım, Teknoloji İçerikleri" />
       <HomeBanner />
       <Section>
         <div className="posts__grid">
 
           {
-            data.allMarkdownRemark.edges.map(({ node }) => (
+            data.allContentfulBlog.edges.map(({ node }) => (
               <Post
                 key={node.id}
-                title={node.frontmatter.title}
-                description={node.frontmatter.description}
-                date={node.frontmatter.date}
-                cover={node.frontmatter.cover}
-                category={node.frontmatter.category}
-                slug={node.fields.slug}
+                title={node.title}
+                slug={"/blog/" + node.slug}
+                category={node.category}
+                description={node.description.description}
+                cover={node.cover.file.url}
+                date={node.createdAt}
               />
             ))
           }

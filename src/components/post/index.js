@@ -9,12 +9,12 @@ function Post(props) {
             </div>
             <div className="post__content">
                 <p className="post__category">
-                    <Link to="/">
-                        {props.category}
+                    <Link to={"/category/" + props.category.slug}>
+                        {props.category.title}
                     </Link>
                 </p>
                 <div className="post__title">
-                    <Link to={"/blog/" + props.slug}>
+                    <Link to={props.slug}>
                         {props.title}
                     </Link>
                 </div>

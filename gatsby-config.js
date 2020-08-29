@@ -1,36 +1,21 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
-    title: `Yazılım, Tasarım, Teknoloji İçerikleri | muho.dev`,
+    title: `muho.dev`,
     description: `Öğrendiğim bilgileri hikaye üreticiliği süzgecinden geçirerek burada paylaşıyorum.`,
     author: `muhodev`,
   },
   plugins: [
+    "gatsby-plugin-sass",
     `gatsby-plugin-react-helmet`,
     {
-      resolve: `gatsby-source-filesystem`,
+      resolve: "gatsby-source-contentful",
       options: {
-        name: `content`,
-        path: `${__dirname}/src/content`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          "gatsby-remark-relative-images",
-          {
-            resolve: "gatsby-remark-images",
-            options: {
-              maxWidth: 750,
-              linkImagesToOriginal: false
-            }
-          }
-        ]
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
       }
     },
-
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -40,9 +25,8 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/content/images/icon.png`,
+        icon: `src/images/icon.png`,
       },
     },
-    "gatsby-plugin-sass"
   ],
 }

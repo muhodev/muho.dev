@@ -1,36 +1,45 @@
 import React from 'react'
 import { graphql } from "gatsby"
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 
-import { Layout, Section } from "../components"
+import { Layout, Section, SEO } from "../components"
 
 export const query = graphql`
     query($slug: String) {
-        markdownRemark(fields: {slug: {eq: $slug}}) {
-            frontmatter {
+        contentfulBlog(
+            slug: {eq: $slug}
+        )
+        {
+            id
+            title
+            slug
+            category {
+                id
                 title
-                description
-                cover
+                slug
             }
-            html
+            cover {file {url}}
+            description {description}
+            createdAt(formatString: "D.M.YYYY")
+            content {json}
         }
     }
-
 `
 
 function BlogTemplate(props) {
-
-    console.log(props.data)
     return (
         <Layout>
+            <SEO title={props.data.contentfulBlog.title} />
             <Section>
                 <div>
-                    <img loading="lazy" src={props.data.markdownRemark.frontmatter.cover} alt="" />
+                    <img loading="lazy" src={props.data.contentfulBlog.cover.file.url} alt="" />
                 </div>
-                <h1>{props.data.markdownRemark.frontmatter.title}</h1>
-                <div dangerouslySetInnerHTML={{ __html: props.data.markdownRemark.html }}></div>
+                <h1>{props.data.contentfulBlog.title}</h1>
+                <div>
+                    {documentToReactComponents(props.data.contentfulBlog.content.json)}
+                </div>
             </Section>
         </Layout>
-
     )
 }
 

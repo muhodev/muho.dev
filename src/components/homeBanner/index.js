@@ -13,7 +13,7 @@ function HomeBanner(props) {
                     <div className="mb-3 title-10 f-weight-medium f-family-serif">
                         Yazılım, Tasarım, Teknoloji İçerikleri
                     </div>
-                    <p>
+                    <p className="c-text-secondary">
                         Öğrendiğim bilgileri hikaye üreticiliği süzgecinden geçirerek burada paylaşıyorum.
                     </p>
                 </div>

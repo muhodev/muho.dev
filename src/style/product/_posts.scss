@@ -11,7 +11,7 @@
 .post {
     display: grid;
     grid-template-columns: auto 2fr 1fr;
-    grid-column-gap: 75px;
+    grid-column-gap: 70px;
     padding-bottom: 35px;
     border-bottom: 1px solid #eee;
 
@@ -47,15 +47,15 @@
         -o-text-overflow: ellipsis;
         text-overflow: ellipsis;
         font-size: 16px;
-        color: #555;
+        color: #444;
     }
 
-    &__category, &__description, .read-more {
+    &__category, .read-more {
         font-size: 15px;
     }
 
     .read-more {
-        margin-top: 10px;
+        margin-top: 16px;
         font-weight: 500;
     }
 }
