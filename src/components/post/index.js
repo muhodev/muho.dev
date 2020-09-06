@@ -6,9 +6,7 @@ import Img from "gatsby-image"
 function Post(props) {
     return (
         <article className="post">
-            <div className="post__date">
-                {props.date}
-            </div>
+
             <div className="post__content">
                 <p className="post__category">
                     <Link to={"/category/" + props.category.Slug}>
@@ -23,23 +21,27 @@ function Post(props) {
                 <p className="post__description">
                     {props.description}
                 </p>
-                {
-                    props.tags &&
+                <div className="post__meta">
 
-                    <div className="tags">
-                        {
-                            props.tags.map((tag, ind) => (
-                                <div className="tag" key={ind}>
-                                    <Link to={"/tag/" + tag.Slug}>
-                                        {tag.Title}
-                                    </Link>
-                                </div>
-                            ))
-                        }
+                    {
+                        props.tags &&
 
-
+                        <div className="tags">
+                            {
+                                props.tags.map((tag, ind) => (
+                                    <div className="tag" key={ind}>
+                                        <Link to={"/tag/" + tag.Slug}>
+                                            {tag.Title}
+                                        </Link>
+                                    </div>
+                                ))
+                            }
+                        </div>
+                    }
+                    <div className="post__date">
+                        {props.date}
                     </div>
-                }
+                </div>
                 <Link to={props.slug}>
                     <div className="read-more">
                         <div>

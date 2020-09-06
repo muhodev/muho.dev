@@ -65,9 +65,7 @@ function BlogTemplate(props) {
                             {props.data.strapiBlog.Description}
                         </p>
                         <div className="article__meta">
-                            <div className="article__date">
-                                {props.data.strapiBlog.created_at}
-                            </div>
+
                             {
                                 props.data.strapiBlog.tags &&
 
@@ -85,6 +83,9 @@ function BlogTemplate(props) {
 
                                 </div>
                             }
+                            <div className="article__date">
+                                {props.data.strapiBlog.created_at}
+                            </div>
                         </div>
                         <div className="article__cover">
                             <Img fluid={props.data.strapiBlog.Cover.childImageSharp.fluid} alt="" />

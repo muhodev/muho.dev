@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { Layout, Section, SEO, HomeBanner, Post } from "../components"
+import { Layout, Section, SEO, Post } from "../components"
 
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
@@ -32,7 +32,7 @@ const IndexPage = () => {
                 }
               }
             }
-            created_at(formatString: "D.M.YYYY")
+            created_at(formatString: "DD.MM.YYYY")
           }
         }
       }
@@ -43,7 +43,6 @@ const IndexPage = () => {
   return (
     <Layout >
       <SEO title="Yazılım, Tasarım, Teknoloji İçerikleri" />
-      <HomeBanner />
       <Section>
         <div className="posts__grid">
           {
