@@ -15,7 +15,7 @@ module.exports = {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: `https://muhodev.herokuapp.com`,
-        queryLimit: 1000, // Default to 100
+        queryLimit: 100,
         contentTypes: [`blog`, `category`, "tag"]
       }
     },
