@@ -4,6 +4,7 @@ import { graphql, Link } from "gatsby"
 import { Layout, Section, SEO } from "../components"
 import ReactMarkdown from "react-markdown"
 import Prism from "prismjs"
+import Img from "gatsby-image"
 
 export const query = graphql`
     query($slug: String) {
@@ -25,12 +26,11 @@ export const query = graphql`
             }
             Cover {
                 childImageSharp {
-                  original {
-                    src
+                  fluid {
+                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
               }
-
             Description
             created_at(formatString: "D.M.YYYY")
             Content
@@ -87,7 +87,7 @@ function BlogTemplate(props) {
                             }
                         </div>
                         <div className="article__cover">
-                            <img loading="lazy" src={props.data.strapiBlog.Cover.childImageSharp.original.src} alt="" />
+                            <Img fluid={props.data.strapiBlog.Cover.childImageSharp.fluid} alt="" />
                         </div>
                     </header>
 

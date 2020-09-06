@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import ReadMore from "./read-more"
+import Img from "gatsby-image"
 
 function Post(props) {
     return (
@@ -53,7 +54,7 @@ function Post(props) {
             <footer>
                 <Link to={props.slug}>
                     <div className="post__cover">
-                        <img loading="lazy" src={props.cover} alt="" />
+                        <Img fluid={props.cover.fluid} />
                     </div>
                 </Link>
             </footer>

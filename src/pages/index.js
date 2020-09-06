@@ -27,8 +27,8 @@ const IndexPage = () => {
             }
             Cover {
               childImageSharp {
-                original {
-                  src
+                fluid {
+                   ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
@@ -54,7 +54,7 @@ const IndexPage = () => {
                 slug={"/article/" + node.Slug}
                 category={node.category}
                 description={node.Description}
-                cover={node.Cover.childImageSharp.original.src}
+                cover={node.Cover.childImageSharp}
                 date={node.created_at}
                 tags={node.tags}
               />

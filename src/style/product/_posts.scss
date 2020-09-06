@@ -22,10 +22,12 @@
         border-radius: 4px;
         box-shadow: 2px 5px 20px #ddd;
     
-        img {
+        .gatsby-image-wrapper {
             width: 100%;
-            border-radius: 4px;
-            object-fit: scale-down;
+
+            img {
+                border-radius: 4px;
+            }
         }
     }
 
@@ -114,10 +116,14 @@
     &__cover {
         width: 100%;
         display: flex;
-        
-        img {
+        box-shadow: 2px 5px 20px #ddd;
+
+        .gatsby-image-wrapper {
             width: 100%;
-            border-radius: 4px;
+
+            img {
+                border-radius: 4px;
+            }
         }
     }
 

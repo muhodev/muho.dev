@@ -9,24 +9,16 @@ module.exports = {
   plugins: [
     "gatsby-plugin-sass",
     `gatsby-plugin-react-helmet`,
-    "gatsby-transformer-sharp",
-    "gatsby-plugin-sharp",
-    {
-      resolve: "gatsby-source-contentful",
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
-      }
-    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-strapi`,
       options: {
         apiURL: `https://muhodev.herokuapp.com`,
         queryLimit: 1000, // Default to 100
-        contentTypes: [`blog`, `category`]
+        contentTypes: [`blog`, `category`, "tag"]
       }
     },
-    `gatsby-plugin-mdx`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
