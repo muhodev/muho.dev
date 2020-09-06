@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import ReadMore from "./read-more"
 
 function Post(props) {
     return (
@@ -9,8 +10,8 @@ function Post(props) {
             </div>
             <div className="post__content">
                 <p className="post__category">
-                    <Link to={"/category/" + props.category.slug}>
-                        {props.category.title}
+                    <Link to={"/category/" + props.category.Slug}>
+                        {props.category.Title}
                     </Link>
                 </p>
                 <div className="post__title">
@@ -21,18 +22,33 @@ function Post(props) {
                 <p className="post__description">
                     {props.description}
                 </p>
-                <div className="tags">
-                    <div className="tag">
-                        <Link to="/">
-                            css
+                {
+                    props.tags &&
+
+                    <div className="tags">
+                        {
+                            props.tags.map((tag, ind) => (
+                                <div className="tag" key={ind}>
+                                    <Link to={"/tag/" + tag.Slug}>
+                                        {tag.Title}
                                     </Link>
+                                </div>
+                            ))
+                        }
+
+
                     </div>
-                    <div className="tag">
-                        <Link to="/">
-                            react
-                                    </Link>
+                }
+                <Link to={props.slug}>
+                    <div className="read-more">
+                        <div>
+                            Devamını oku
+                      </div>
+                        <div className="icon">
+                            <ReadMore />
+                        </div>
                     </div>
-                </div>
+                </Link>
             </div>
             <footer>
                 <Link to={props.slug}>

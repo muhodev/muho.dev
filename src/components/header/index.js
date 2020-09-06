@@ -35,13 +35,6 @@ const Header = () => (
                         Projeler
                     </Link>
                 </div>
-                <div className="header__item">
-                    <Link
-                        to="/"
-                    >
-                        Etiketler
-                    </Link>
-                </div>
             </div>
         </div>
     </header>

@@ -5,24 +5,34 @@ import { Layout, Section, SEO, HomeBanner, Post } from "../components"
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allContentfulBlog(
+      allStrapiBlog(
         sort: {
-          fields: createdAt,
+          fields: created_at,
           order: DESC
         }
       ) {
         edges {
           node {
             id
-            title
-            slug
+            Title
+            Slug
+            Description
             category {
-              title
-              slug
+              Title
+              Slug
             }
-            cover {file {url}}
-            description {description}
-            createdAt(formatString: "D.M.YYYY")
+            tags {
+              Title
+              Slug
+            }
+            Cover {
+              childImageSharp {
+                original {
+                  src
+                }
+              }
+            }
+            created_at(formatString: "D.M.YYYY")
           }
         }
       }
@@ -36,17 +46,17 @@ const IndexPage = () => {
       <HomeBanner />
       <Section>
         <div className="posts__grid">
-
           {
-            data.allContentfulBlog.edges.map(({ node }) => (
+            data.allStrapiBlog.edges.map(({ node }) => (
               <Post
                 key={node.id}
-                title={node.title}
-                slug={"/blog/" + node.slug}
+                title={node.Title}
+                slug={"/article/" + node.Slug}
                 category={node.category}
-                description={node.description.description}
-                cover={node.cover.file.url}
-                date={node.createdAt}
+                description={node.Description}
+                cover={node.Cover.childImageSharp.original.src}
+                date={node.created_at}
+                tags={node.tags}
               />
             ))
           }
