@@ -41,21 +41,21 @@ module.exports = {
         pageTransitionDelay: 0
       },
     },
-    {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
-      options: {
-        fonts: [
-          {
-            family: "Merriweather",
-            variants: ["700"]
-          },
-          {
-            family: "IBM Plex Sans",
-            variants: ["400", "400i", "500"]
-          },
-        ],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
+    //   options: {
+    //     fonts: [
+    //       {
+    //         family: "Merriweather",
+    //         variants: ["700"]
+    //       },
+    //       {
+    //         family: "IBM Plex Sans",
+    //         variants: ["400", "400i", "500"]
+    //       },
+    //     ],
+    //   },
+    // },
     {
       resolve: `gatsby-source-strapi`,
       options: {
