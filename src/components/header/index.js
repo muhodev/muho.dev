@@ -23,14 +23,14 @@ const Header = () => (
                 </div>
                 <div className="header__item">
                     <Link
-                        to="/"
+                        to="/about"
                     >
                         Hakkımda
                     </Link>
                 </div>
                 <div className="header__item">
                     <Link
-                        to="/"
+                        to="/projects"
                     >
                         Projeler
                     </Link>

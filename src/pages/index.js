@@ -5,34 +5,38 @@ import { Layout, Section, SEO, Post } from "../components"
 const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
-      allStrapiBlog(
+      allStrapiArticle(
+        filter:{
+          isDraft: {eq:false},
+          isActive: {eq: true}   
+        },
         sort: {
-          fields: created_at,
+          fields: createdAt,
           order: DESC
         }
       ) {
         edges {
           node {
             id
-            Title
-            Slug
-            Description
+            title
+            slug
+            description
             category {
-              Title
-              Slug
+              title
+              slug
             }
             tags {
-              Title
-              Slug
+              title
+              slug
             }
-            Cover {
+            cover {
               childImageSharp {
-                fluid {
-                   ...GatsbyImageSharpFluid_withWebp
+                fluid(maxWidth:300) {
+                  ...GatsbyImageSharpFluid_withWebp
                 }
               }
             }
-            created_at(formatString: "DD.MM.YYYY")
+            createdAt(formatString: "DD.MM.YYYY")
           }
         }
       }
@@ -46,14 +50,14 @@ const IndexPage = () => {
       <Section>
         <div className="posts__grid">
           {
-            data.allStrapiBlog.edges.map(({ node }) => (
+            data.allStrapiArticle.edges.map(({ node }) => (
               <Post
                 key={node.id}
-                title={node.Title}
-                slug={"/article/" + node.Slug}
+                title={node.title}
+                slug={"/article/" + node.slug}
                 category={node.category}
-                description={node.Description}
-                cover={node.Cover.childImageSharp}
+                description={node.description}
+                cover={node.cover.childImageSharp}
                 date={node.created_at}
                 tags={node.tags}
               />

@@ -7,18 +7,18 @@ module.exports = {
     author: `muhodev`,
   },
   plugins: [
-    "gatsby-plugin-sass",
-    `gatsby-plugin-react-helmet`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-strapi`,
       options: {
-        apiURL: `https://muhodev.herokuapp.com`,
+        apiURL: process.env.STRAPI_API_URL || "http://localhost:1337",
         queryLimit: 100,
-        contentTypes: [`blog`, `category`, "tag"]
+        contentTypes: [`article`, `category`, "tag"]
       }
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    "gatsby-plugin-sass",
+    `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

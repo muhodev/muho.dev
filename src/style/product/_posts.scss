@@ -33,7 +33,7 @@
 
     &__title {
         font-size: 22px;
-        font-weight: 600;
+        font-weight: $f-weight-bold;
         font-family: $f-family-serif;
         line-height: 1.2;
         margin-top: 10px;
@@ -100,14 +100,15 @@
 
     &__title {
         font-family: $f-family-serif;
-        font-weight: 600;
+        font-weight: $f-weight-bold;
         color: #202124;
-        padding: 10px 0;
+        padding: 15px 0;
     }
 
     &__description {
-        font-size: 16px;
-        line-height: 28px;
+        margin-top: 10px;
+        font-size: 18px;
+        line-height: 30px;
     }
 
     &__meta {
@@ -139,7 +140,7 @@
 
     &__content {
         p {
-            font-size: 17px;
+            font-size: 18px;
             padding: 24px 0;
             line-height: 30px;
         }
@@ -237,7 +238,7 @@
     font-size: 13px;
     a {
         display: flex;
-        padding: 0px 8px;
+        padding: 1px 8px;
     }
     &:hover {
         background-color: #eee;

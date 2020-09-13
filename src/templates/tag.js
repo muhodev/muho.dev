@@ -9,11 +9,11 @@ export const query =
     query($slug: String) {
         allStrapiArticle(
             filter: {
-              category: { slug: { eq: $slug } }
+              tags: {elemMatch: {slug : {eq: $slug}}}
               isDraft: { eq: false }
               isActive: { eq: true }
             }
-        ){
+          ){
             edges {
                 node {
 
@@ -45,14 +45,14 @@ export const query =
     }
 `
 
-function CategoryTemplate(props) {
+function TagTemplate(props) {
 
     return (
         <Layout >
             <SEO title="Yazılım, Tasarım, Teknoloji İçerikleri" />
             <Section>
                 <div className="posts__grid">
-                    <div>Kategori: {props.pageContext.title}</div>
+                    <div>Tag: {props.pageContext.title}</div>
                     {
                         props.data.allStrapiArticle.edges.map(({ node }) => (
                             <Post
@@ -74,4 +74,4 @@ function CategoryTemplate(props) {
     )
 }
 
-export default CategoryTemplate
+export default TagTemplate

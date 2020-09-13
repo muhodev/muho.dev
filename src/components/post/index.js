@@ -9,8 +9,8 @@ function Post(props) {
 
             <div className="post__content">
                 <p className="post__category">
-                    <Link to={"/category/" + props.category.Slug}>
-                        {props.category.Title}
+                    <Link to={"/category/" + props.category.slug}>
+                        {props.category.title}
                     </Link>
                 </p>
                 <div className="post__title">
@@ -30,8 +30,8 @@ function Post(props) {
                             {
                                 props.tags.map((tag, ind) => (
                                     <div className="tag" key={ind}>
-                                        <Link to={"/tag/" + tag.Slug}>
-                                            {tag.Title}
+                                        <Link to={"/tag/" + tag.slug}>
+                                            {tag.title}
                                         </Link>
                                     </div>
                                 ))

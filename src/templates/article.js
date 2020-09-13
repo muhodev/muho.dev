@@ -8,32 +8,32 @@ import Img from "gatsby-image"
 
 export const query = graphql`
     query($slug: String) {
-        strapiBlog(
-            Slug: {eq: $slug}
+        strapiArticle(
+            slug: {eq: $slug}
         )
         {
             id
-            Title
-            Slug
+            title
+            slug
             tags { 
-                Title
-                Slug
+                title
+                slug
             }
             category {
                 id
-                Title
-                Slug
+                title
+                slug
             }
-            Cover {
+            cover {
                 childImageSharp {
-                  fluid {
-                     ...GatsbyImageSharpFluid_withWebp
+                    fluid(maxWidth:900) {
+                        ...GatsbyImageSharpFluid_withWebp
+                    }
                   }
-                }
-              }
-            Description
-            created_at(formatString: "D.M.YYYY")
-            Content
+            }
+            description
+            createdAt(formatString: "D.M.YYYY")
+            content
             
         }
     }
@@ -53,28 +53,30 @@ function BlogTemplate(props) {
 
     return (
         <Layout>
-            <SEO title={props.data.strapiBlog.Title} />
+            <SEO title={props.data.strapiArticle.title} />
             <Section>
                 <div className="article">
                     <header className="article__header">
                         <div className="article__category">
-                            {props.data.strapiBlog.category.Title}
+                            <Link to={"/category/" + props.data.strapiArticle.category.slug}>
+                                {props.data.strapiArticle.category.title}
+                            </Link>
                         </div>
-                        <h1 className="article__title title-10">{props.data.strapiBlog.Title}</h1>
+                        <h1 className="article__title title-10">{props.data.strapiArticle.title}</h1>
                         <p className="article__description">
-                            {props.data.strapiBlog.Description}
+                            {props.data.strapiArticle.description}
                         </p>
                         <div className="article__meta">
 
                             {
-                                props.data.strapiBlog.tags &&
+                                props.data.strapiArticle.tags &&
 
                                 <div className="tags">
                                     {
-                                        props.data.strapiBlog.tags.map((tag, ind) => (
+                                        props.data.strapiArticle.tags.map((tag, ind) => (
                                             <div className="tag" key={ind}>
-                                                <Link to={"/tag/" + tag.Slug}>
-                                                    {tag.Title}
+                                                <Link to={"/tag/" + tag.slug}>
+                                                    {tag.title}
                                                 </Link>
                                             </div>
                                         ))
@@ -84,16 +86,16 @@ function BlogTemplate(props) {
                                 </div>
                             }
                             <div className="article__date">
-                                {props.data.strapiBlog.created_at}
+                                {props.data.strapiArticle.createdAt}
                             </div>
                         </div>
                         <div className="article__cover">
-                            <Img fluid={props.data.strapiBlog.Cover.childImageSharp.fluid} alt="" />
+                            <Img fluid={props.data.strapiArticle.cover.childImageSharp.fluid} alt="" />
                         </div>
                     </header>
 
                     <div className="article__content">
-                        <ReactMarkdown source={props.data.strapiBlog.Content} />
+                        <ReactMarkdown source={props.data.strapiArticle.content} />
                     </div>
                 </div>
             </Section>
