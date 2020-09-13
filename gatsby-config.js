@@ -3,10 +3,35 @@ require("dotenv").config()
 module.exports = {
   siteMetadata: {
     title: `muho.dev`,
-    description: `Öğrendiğim bilgileri hikaye üreticiliği süzgecinden geçirerek burada paylaşıyorum.`,
+    description: `Öğrendiğim bilgileri ve edindiğim deneyimleri burada paylaşıyorum.`,
     author: `muhodev`,
+    siteUrl: "https://www.muho.dev"
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `muho.dev`,
+        short_name: `muho.dev`,
+        start_url: `/`,
+        background_color: `#f1f1f1`,
+        theme_color: `#f1f1f1`,
+        display: `minimal-ui`,
+        icon: `src/images/icon.png`,
+      },
+    },
+    "gatsby-plugin-offline",
+    "gatsby-plugin-netlify",
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.muho.dev',
+        sitemap: 'https://www.muho.dev/sitemap.xml',
+        policy: [{ userAgent: '*', allow: '/' }]
+      }
+    },
+    "gatsby-plugin-sitemap",
+    "gatsby-plugin-feed",
     {
       resolve: `gatsby-source-strapi`,
       options: {
@@ -19,17 +44,5 @@ module.exports = {
     `gatsby-plugin-sharp`,
     "gatsby-plugin-sass",
     `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/icon.png`,
-      },
-    },
   ],
 }
