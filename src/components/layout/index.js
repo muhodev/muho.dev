@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import "../../style/index.scss"
 import { Header } from ".."
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 
 const Layout = ({ children }) => {
@@ -14,15 +15,22 @@ const Layout = ({ children }) => {
                     <div>
                         © {new Date().getFullYear()} Built with
                     {` `}
-                        <a href="https://www.gatsbyjs.org" target="blank">Gatsby </a>
+                        <OutboundLink href="https://www.gatsbyjs.org" target="_new">
+                            Gatsby
+                        </OutboundLink>
                     </div>
                     <div>
-                        <a href="https://github.com/muhodev" target="blank">Github</a>
+                        <OutboundLink href="https://github.com/muhodev" target="_new">
+                            Github
+                        </OutboundLink>
                         <span> • </span>
-                        <a href="https://twitter.com/muhodev" target="blank">Twitter</a>
+                        <OutboundLink href="https://twitter.com/muhodev" target="_new">
+                            Twitter
+                        </OutboundLink>
                         <span> • </span>
-                        <a href="https://instagram.com/muhodev" target="blank">Instagram</a>
-
+                        <OutboundLink href="https://instagram.com/muhodev" target="_new">
+                            Instagram
+                        </OutboundLink>
                     </div>
                 </div>
             </footer>

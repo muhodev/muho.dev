@@ -58,7 +58,7 @@ const IndexPage = () => {
                 category={node.category}
                 description={node.description}
                 cover={node.cover.childImageSharp}
-                date={node.created_at}
+                date={node.createdAt}
                 tags={node.tags}
               />
             ))
