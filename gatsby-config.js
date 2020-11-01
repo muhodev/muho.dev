@@ -41,29 +41,27 @@ module.exports = {
         pageTransitionDelay: 0
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-prefetch-google-fonts`,
-    //   options: {
-    //     fonts: [
-    //       {
-    //         family: "Merriweather",
-    //         variants: ["700"]
-    //       },
-    //       {
-    //         family: "IBM Plex Sans",
-    //         variants: ["400", "400i", "500"]
-    //       },
-    //     ],
-    //   },
-    // },
-    // {
-    //   resolve: `gatsby-source-strapi`,
-    //   options: {
-    //     apiURL: process.env.STRAPI_API_URL || "http://localhost:1337",
-    //     queryLimit: 100,
-    //     contentTypes: [`article`, `category`, "tag"]
-    //   }
-    // },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `posts`,
+        path: `${__dirname}/src/content/posts/`,
+      },
+    }, {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        // CommonMark mode (default: true)
+        commonmark: true,
+        // Footnotes mode (default: true)
+        footnotes: true,
+        // Pedantic mode (default: true)
+        pedantic: true,
+        // GitHub Flavored Markdown mode (default: true)
+        gfm: true,
+        // Plugins configs
+        plugins: [],
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     "gatsby-plugin-sass",
