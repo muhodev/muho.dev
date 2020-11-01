@@ -4,40 +4,40 @@ import { graphql } from "gatsby"
 import { Layout, Section, SEO, Post } from "../components"
 
 export const query =
-
     graphql`
     query($slug: String) {
-        allStrapiArticle(
+        allMarkdownRemark(
             filter: {
-              category: { slug: { eq: $slug } }
-              isDraft: { eq: false }
-              isActive: { eq: true }
+                frontmatter: {
+                    category: { slug: { eq: $slug } }
+                    isDraft: { eq: false }
+                }
             }
         ){
             edges {
                 node {
-
                     id
-                    title
-                    slug
-                    tags { 
+                    frontmatter {
                         title
                         slug
+                        tags { 
+                            title
+                            slug
+                        }
+                        category {
+                            title
+                            slug
+                        }
+                        cover {
+                            childImageSharp {
+                                fluid(maxWidth:900) {
+                                    ...GatsbyImageSharpFluid_withWebp
+                                }
+                              }
+                        }
+                        description
+                        createdAt
                     }
-                    category {
-                        id
-                        title
-                        slug
-                    }
-                    cover {
-                        childImageSharp {
-                            fluid(maxWidth:900) {
-                                ...GatsbyImageSharpFluid_withWebp
-                            }
-                          }
-                    }
-                    description
-                    createdAt(formatString: "D.M.YYYY")
                     
                 }
             }
@@ -54,23 +54,23 @@ function CategoryTemplate(props) {
                 <div className="posts__grid">
                     <div>Kategori: {props.pageContext.title}</div>
                     {
-                        props.data.allStrapiArticle.edges.map(({ node }) => (
+                        props.data.allMarkdownRemark.edges.map(({ node }) => (
                             <Post
                                 key={node.id}
-                                title={node.title}
-                                slug={"/article/" + node.slug}
-                                category={node.category}
-                                description={node.description}
-                                cover={node.cover.childImageSharp}
-                                date={node.createdAt}
-                                tags={node.tags}
+                                title={node.frontmatter.title}
+                                slug={"/article/" + node.frontmatter.slug}
+                                category={node.frontmatter.category}
+                                description={node.frontmatter.description}
+                                cover={node.frontmatter.cover.childImageSharp}
+                                date={node.frontmatter.createdAt}
+                                tags={node.frontmatter.tags}
                             />
                         ))
                     }
 
                 </div>
             </Section>
-        </Layout >
+        </Layout>
     )
 }
 

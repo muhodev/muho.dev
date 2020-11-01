@@ -1,84 +1,68 @@
+const categories = require("./src/content/data/categories")
+const tags = require("./src/content/data/tags")
+
 exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-  const result = await graphql(
-    `
-      {
-        articles: allStrapiArticle {
-          edges {
-            node {
-              strapiId
-              slug
+    const { createPage } = actions
+    const result = await graphql(
+        `
+            {
+                articles: allMarkdownRemark(filter: { frontmatter: {isDraft: {eq: false}}}) {
+                    edges {
+                        node {
+                            id
+                            frontmatter {
+                                slug
+                            }
+                        }
+                    }
+                }
             }
-          }
-        }
-        categories: allStrapiCategory {
-          edges {
-            node {
-              strapiId
-              slug
-              title
-            }
-          }
-        }
-        tags: allStrapiTag {
-          edges {
-            node {
-              strapiId 
-              slug
-              title
-            }
-          }
-        }
-      }
-    `
-  )
+        `
+    )
 
-  if (result.errors) {
-    throw result.errors
-  }
+    if (result.errors) {
+        throw result.errors
+    }
 
-  const articles = result.data.articles.edges
-  const categories = result.data.categories.edges
-  const tags = result.data.tags.edges
+    const articles = result.data.articles.edges
 
+    const ArticleTemplate = require.resolve("./src/templates/article.js")
 
-  const ArticleTemplate = require.resolve("./src/templates/article.js")
-
-  articles.forEach((article) => {
-    createPage({
-      path: `/article/${article.node.slug}`,
-      component: ArticleTemplate,
-      context: {
-        slug: article.node.slug,
-      },
+    articles.forEach((article) => {
+        createPage({
+            path: `/article/${article.node.frontmatter.slug}`,
+            component: ArticleTemplate,
+            context: {
+                slug: article.node.frontmatter.slug,
+            },
+        })
     })
-  })
 
-  let CategoryTemplate = require.resolve("./src/templates/category.js")
+    let CategoryTemplate = require.resolve("./src/templates/category.js")
 
-  categories.forEach((category) => {
-    createPage({
-      path: `/category/${category.node.slug}`,
-      component: CategoryTemplate,
-      context: {
-        slug: category.node.slug,
-        title: category.node.title
-      },
+    categories.forEach((category) => {
+        createPage({
+            path: `/category/${category.slug}`,
+            component: CategoryTemplate,
+            context: {
+                slug: category.slug,
+                title: category.title
+            },
+        })
     })
-  })
 
-  let TagTemplate = require.resolve("./src/templates/tag.js")
+    let TagTemplate = require.resolve("./src/templates/tag.js")
 
 
-  tags.forEach((tag) => {
-    createPage({
-      path: `/tag/${tag.node.slug}`,
-      component: TagTemplate,
-      context: {
-        slug: tag.node.slug,
-        type: "Tag",
-        title: tag.node.title
-      },
+    tags.forEach((tag) => {
+        createPage({
+            path: `/tag/${tag.slug}`,
+            component: TagTemplate,
+            context: {
+                slug: tag.slug,
+                type: "Tag",
+                title: tag.title
+            },
+        })
     })
-  })
 }
