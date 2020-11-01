@@ -56,14 +56,14 @@ module.exports = {
     //     ],
     //   },
     // },
-    {
-      resolve: `gatsby-source-strapi`,
-      options: {
-        apiURL: process.env.STRAPI_API_URL || "http://localhost:1337",
-        queryLimit: 100,
-        contentTypes: [`article`, `category`, "tag"]
-      }
-    },
+    // {
+    //   resolve: `gatsby-source-strapi`,
+    //   options: {
+    //     apiURL: process.env.STRAPI_API_URL || "http://localhost:1337",
+    //     queryLimit: 100,
+    //     contentTypes: [`article`, `category`, "tag"]
+    //   }
+    // },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     "gatsby-plugin-sass",
