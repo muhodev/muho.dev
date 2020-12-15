@@ -7,6 +7,7 @@ export const query =
     graphql`
     query($slug: String) {
         allMarkdownRemark(
+            sort: { order: DESC, fields: [frontmatter___createdAt] }
             filter: {
                 frontmatter: {
                     category: { slug: { eq: $slug } }

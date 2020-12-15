@@ -6,7 +6,7 @@ const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
       allMarkdownRemark(
-        sort: { order: DESC, fields: frontmatter___createdAt }
+        sort: { order: DESC, fields: [frontmatter___createdAt] }
         filter: {
           frontmatter: {
             isDraft: { eq: false }
