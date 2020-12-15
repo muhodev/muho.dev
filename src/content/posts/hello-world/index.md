@@ -3,7 +3,7 @@ title: "Hello world"
 slug: "hello-world"
 description: "Yeni bir programlama dilini öğrenmeye başladığımızda genelde ekrana 'Hello world' yazısını basarız. Ben de bu sitedeki ilk içeriğime Hello world ile başlamak istiyorum."
 cover: "hello-world.webp"
-createdAt: "16.09.2020"
+createdAt: "2020-09-16"
 category: {title: "Blog", slug: "blog"}
 tags: [{title: "genel", slug: "genel"}]
 isDraft: false

@@ -87,7 +87,9 @@ function BlogTemplate(props) {
                                 </div>
                             }
                             <div className="article__date">
-                                {props.data.markdownRemark.frontmatter.createdAt}
+                                {new Date(
+                                    props.data.markdownRemark.frontmatter.createdAt
+                                ).toLocaleDateString()}
                             </div>
                         </div>
                         <div className="article__cover">

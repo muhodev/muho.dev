@@ -3,7 +3,7 @@ title: "Neden ürün geliştiremiyoruz?"
 slug: "neden-urun-gelistiremiyoruz"
 description: "3 ay önce başladığımız yan projemizde neden bir adım bile ilerleyemediğimizi maddeler halinde ele almak istiyorum."
 cover: "cover.webp"
-createdAt: "15.12.2020"
+createdAt: "2020-12-15"
 category: {title: "Blog", slug: "blog"}
 tags: [{title: "genel", slug: "genel"}]
 isDraft: false
@@ -14,7 +14,7 @@ Bundan 3 ay öncesinde arkadaşımla beraber bir yan projeye başlama kararı al
 
 ## 1. Çalışma saatleri
 
-Bizi en çok yoran çalıştığımız mevcut tam zamanlı bir işimizin olmasıydı. 
+Bizi en çok yoran çalıştığımız tam zamanlı bir işimizin olmasıydı. 
 
 ## 2. Mükemmeliyetçilik
 

@@ -39,7 +39,7 @@ function Post(props) {
                         </div>
                     }
                     <div className="post__date">
-                        {props.date}
+                        {new Date(props.date).toLocaleDateString()}
                     </div>
                 </div>
                 <Link to={props.slug}>
