@@ -14,7 +14,7 @@ Bundan 3 ay öncesinde arkadaşımla beraber bir yan projeye başlama kararı al
 
 ## 1. Çalışma saatleri
 
-Bizi en çok yoran çalıştığımız tam zamanlı bir işimizin olmasıydı. 
+Bizi en çok yoran şey çalıştığımız tam zamanlı bir işimizin olmasıydı. Haliyle de tam zamanlı bir işte çalışırken ekstra başka bir proje üzerine kafa yormak çok yorucu oluyor.
 
 ## 2. Mükemmeliyetçilik
 
