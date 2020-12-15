@@ -1,6 +1,6 @@
 ---
-title: "Neden ürün geliştiremiyoruz?"
-slug: "neden-urun-gelistiremiyoruz"
+title: "Nasıl ürün geliştiremiyoruz?"
+slug: "nasil-urun-gelistiremiyoruz"
 description: "3 ay önce başladığımız yan projemizde neden bir adım bile ilerleyemediğimizi maddeler halinde ele almak istiyorum."
 cover: "cover.webp"
 createdAt: "2020-12-15"
