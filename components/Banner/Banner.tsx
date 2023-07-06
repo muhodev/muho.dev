@@ -13,7 +13,7 @@ export default function Banner() {
         <div className="text-6xl font-bold text-zinc-700 mt-2">Freelancer</div>
         <div className="text-lg md:text-xl lg:text-2xl mt-16 text-zinc-400">
           I build ideas, design products and share the proces on
-          <span className="text-indigo-100 font-bold underline pl-2">
+          <span className="text-indigo-200 font-bold underline pl-2">
             #buildinpublic
           </span>
         </div>

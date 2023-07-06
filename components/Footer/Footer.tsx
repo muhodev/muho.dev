@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="flex items-center justify-center bg-zinc-800 py-8 border-t border-zinc-700">
       <div className="container flex items-center gap-x-2 justify-between">
         <div>
-          <span className="text-zinc-300">The source code available at </span>
+          <span className="text-zinc-400">The source code available at </span>
           <Link href="" className="text-indigo-300">
             Github
           </Link>
