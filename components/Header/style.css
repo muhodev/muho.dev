@@ -1,0 +1,50 @@
+.hamburger-menu-item {
+    @apply  relative
+            w-8
+            h-1
+            bg-indigo-200
+            rounded-full
+            transition-all
+            duration-150
+            
+}
+
+.hamburger-menu-item::before {
+    @apply  content-['']
+            left-0
+            absolute
+            w-8
+            h-1
+            bg-indigo-200
+            rounded-full
+            -translate-y-2
+            transition-all
+            duration-150
+}
+
+.hamburger-menu-item::after {
+    @apply 
+            left-0
+            content-['']
+            absolute
+            w-8
+            h-1
+            bg-indigo-200
+            rounded-full
+            translate-y-2
+            transition-all
+            duration-150
+}
+
+
+.hamburger-toggle > span{
+    @apply h-0 bg-transparent
+}
+
+.hamburger-toggle > span::before{
+    @apply translate-y-0 rotate-45 
+}
+
+.hamburger-toggle > span::after{
+    @apply translate-y-0 -rotate-45 
+}

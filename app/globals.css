@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #1a1a1a;
+  --text:#fff;
+  --primary:#4c00ce;
+}
+
+body {
+ @apply bg-background text-main min-h-screen;
+}
