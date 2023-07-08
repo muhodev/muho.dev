@@ -8,7 +8,7 @@ module.exports = {
   theme: {
     extend: {
       container: {
-        padding: "2rem",
+        padding: "1rem",
       },
       colors: {
         background: "var(--background)",

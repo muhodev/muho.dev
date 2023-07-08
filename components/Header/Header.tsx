@@ -25,7 +25,7 @@ const navItems = [
 
 function NavItem({ href, label }: NavItemProps) {
   return (
-    <Link href={href} className="px-4 py-4 font-semibold block">
+    <Link href={href} className={cn("py-4 font-semibold block")}>
       {label}
     </Link>
   );
@@ -37,7 +37,7 @@ export default function Header() {
     <header className="flex items-center justify-center sticky top-0 bg-background z-50">
       <div className="container h-24 flex items-center justify-between">
         <h1>
-          <Link href="/" className="text-lg md:text-xl font-bold">
+          <Link href="/" className="text-lg lg:text-xl font-bold">
             muho.dev
           </Link>
         </h1>
@@ -48,7 +48,7 @@ export default function Header() {
           />
           <div
             className={cn(
-              "lg:static lg:top-auto lg:space-y-0 lg:left-auto lg:right-auto lg:flex lg:min-h-0 lg:py-0 lg:border-none lg:items-center gap-x-2 transition-all duration-150",
+              "lg:static lg:top-auto lg:space-y-0 lg:left-auto lg:right-auto lg:flex lg:min-h-0 lg:py-0 lg:border-none lg:items-center gap-x-2 transition-all duration-150 lg:space-x-8",
               {
                 "border-t border-zinc-700 block absolute top-full left-0 right-0 bg-background w-full py-10 min-h-[95vh] container mx-auto space-y-8 text-lg":
                   isOpen,

@@ -1,7 +1,7 @@
 .hamburger-menu-item {
     @apply  relative
-            w-10
-            h-1.5
+            w-8
+            h-1
             bg-indigo-200
             rounded-full
             transition-all
@@ -13,11 +13,11 @@
     @apply  content-['']
             left-0
             absolute
-            w-10
-            h-1.5
+            w-8
+            h-1
             bg-indigo-200
             rounded-full
-            -translate-y-3
+            -translate-y-2
             transition-all
             duration-150
 }
@@ -27,11 +27,11 @@
             left-0
             content-['']
             absolute
-            w-10
-            h-1.5
+            w-8
+            h-1
             bg-indigo-200
             rounded-full
-            translate-y-3
+            translate-y-2
             transition-all
             duration-150
 }

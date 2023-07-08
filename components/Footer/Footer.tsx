@@ -10,7 +10,7 @@ import {
 export default function Footer() {
   return (
     <footer className="flex items-center justify-center bg-zinc-800 py-8 border-t border-zinc-700">
-      <div className="container flex items-center gap-x-2 justify-between">
+      <div className="container flex flex-col lg:flex-row gap-y-4 items-center gap-x-2 justify-between">
         <div>
           <span className="text-zinc-400">The source code available at </span>
           {SOURCE_CODE_URL && (
