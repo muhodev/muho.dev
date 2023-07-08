@@ -23,13 +23,12 @@ export default function FeaturedArticles() {
       <div className="container mx-auto py-10 lg:py-32">
         <div className="flex items-center justify-between">
           <h3 className="text-zinc-200 text-2xl lg:text-5xl font-bold flex items-end gap-x-2">
-            <span>Articles</span>
+            <span>Writings</span>
             <span className="text-zinc-700 text-xl lg:text-4xl">#20</span>
           </h3>
-          <button className="lg:text-lg font-medium text-indigo-200">
-            <span>Show All</span>{" "}
-            <span className="hidden lg:inline">Articles</span>
-          </button>
+          <Link href="/blog" className="lg:text-lg font-medium text-indigo-200">
+            <span>See All</span> <span className="hidden lg:inline">Blog</span>
+          </Link>
         </div>
         <div className="mt-10 lg:mt-16 grid lg:grid-cols-2 gap-8">
           {articles.map((article) => (

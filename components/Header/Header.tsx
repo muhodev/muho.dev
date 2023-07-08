@@ -1,38 +1,48 @@
 "use client";
 import Link from "next/link";
-import { ReactNode, useState } from "react";
+import { usePathname } from "next/navigation";
+import { MouseEventHandler, ReactNode, useEffect, useState } from "react";
 import HamburgerMenu from "./HamburgerMenu";
 import cn from "classnames";
 
 type NavItemProps = {
   href: string;
   label: ReactNode;
+  className?: string;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 };
 
-const navItems = [
-  { href: "/about-me", label: "About" },
-  { href: "/projects", label: "Works" },
+export const navItems = [
+  { href: "/about", label: "About" },
+  { href: "/works", label: "Works" },
   { href: "/blog", label: "Blog" },
   {
     href: "/contact",
-    label: (
-      <span className="bg-indigo-500 px-4 py-3 rounded-md text-center min-w-[7rem]">
-        Contact me
-      </span>
-    ),
+    label: "Contact Me",
+    className:
+      "bg-indigo-500 px-4 rounded-md text-center min-w-[9rem] justify-center inline-flex",
   },
 ];
 
-function NavItem({ href, label }: NavItemProps) {
+export function NavItem({ href, label, className, onClick }: NavItemProps) {
   return (
-    <Link href={href} className={cn("py-4 font-semibold block")}>
+    <Link
+      href={href}
+      onClick={onClick}
+      className={cn("py-2.5 font-semibold block", className)}
+    >
       {label}
     </Link>
   );
 }
 
 export default function Header() {
+  const pathname = usePathname();
   const [isOpen, setOpen] = useState(false);
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
   return (
     <header className="flex items-center justify-center sticky top-0 bg-background z-50">
       <div className="container h-24 flex items-center justify-between">
@@ -61,6 +71,7 @@ export default function Header() {
                 key={navItem.href}
                 href={navItem.href}
                 label={navItem.label}
+                className={navItem.className}
               />
             ))}
           </div>

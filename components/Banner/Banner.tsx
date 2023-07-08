@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { GithubIcon, TwitterIcon } from "../Icons";
 import Link from "next/link";
-import { GITHUB_URL, TWITTER_URL } from "@/constants/env";
+import { EMAIL, GITHUB_URL, TWITTER_URL } from "@/constants/env";
 
 export default function Banner() {
   return (
@@ -28,20 +28,29 @@ export default function Banner() {
         </div>
 
         <div className="text-lg lg:text-2xl mt-8 lg:mt-16 text-zinc-400">
-          I build ideas, design products and share the proces on
-          <span className="text-indigo-200 font-bold underline pl-2">
+          I build ideas, design products and share the process on
+          <Link
+            href={TWITTER_URL ?? ""}
+            target="_blank"
+            className="text-green-200 font-bold underline pl-2"
+          >
             #buildinpublic
-          </span>
+          </Link>
         </div>
 
         <div className="mt-8 lg:mt-16 space-x-4 flex items-center justify-center">
-          <button className="rounded-full h-12 min-w-[5rem] bg-zinc-700 text-zinc-200 font-bold text-center text-sm lg:text-base">
-            Email
-          </button>
+          {EMAIL && (
+            <Link
+              href={`mailto:${EMAIL}`}
+              className="hover:bg-indigo-500 transition-all duration-150 rounded-full h-12 min-w-[5rem] bg-zinc-700 text-zinc-200 font-bold flex items-center justify-center text-center text-sm lg:text-base"
+            >
+              Email
+            </Link>
+          )}
           {!!TWITTER_URL && (
             <Link
               href={TWITTER_URL}
-              className="rounded-full h-12 w-12 flex items-center justify-center bg-zinc-700 text-zinc-300 font-bold text-lg lg:text-2xl"
+              className="hover:bg-blue-400 transition-all duration-150 rounded-full h-12 w-12 flex items-center justify-center bg-zinc-700 text-zinc-300 font-bold text-lg lg:text-2xl"
             >
               <TwitterIcon />
             </Link>
@@ -49,7 +58,7 @@ export default function Banner() {
           {!!GITHUB_URL && (
             <Link
               href={GITHUB_URL}
-              className="rounded-full h-12 w-12 flex items-center justify-center bg-zinc-700 text-zinc-300 font-bold text-lg lg:text-2xl"
+              className="hover:bg-black transition-all duration-150 rounded-full h-12 w-12 flex items-center justify-center bg-zinc-700 text-zinc-300 font-bold text-lg lg:text-2xl"
             >
               <GithubIcon />
             </Link>
