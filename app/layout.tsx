@@ -1,6 +1,7 @@
 import { Footer, Header } from "@/components";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,19 @@ export default function RootLayout({
         <Header />
         <main style={{ minHeight: "calc(100vh - 10rem)" }}>{children}</main>
         <Footer />
+        <Script id="serviceWorkerUnregister">
+          {`if ("serviceWorker" in navigator) {
+    window.addEventListener("load", function () {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister().then((bool) => {
+            console.log("unregister: ", bool);
+          });
+        }
+      });
+    });
+  }`}
+        </Script>
       </body>
     </html>
   );
